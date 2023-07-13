@@ -17,6 +17,12 @@ public class QuestionController {
 
     @Autowired
     QuestionService questionService;
+
+    @GetMapping("displayHello")
+    @ResponseBody
+    public String displayHello(){
+        return "Hello";
+    }
     @GetMapping(value = "questionList")
     @ResponseBody
     public ResponseEntity<List<Question>> getAllQuestions(){
@@ -34,6 +40,7 @@ public class QuestionController {
     @PutMapping("addQuestion")
     @ResponseBody
     public String addQuestion(@RequestBody Question question){
+
         return questionService.addQuestion(question);
     }
     @DeleteMapping("deleteQuestion/{id}")
